@@ -1,0 +1,17 @@
+bin
+*.orig
+bin/*
+obj
+obj/*
+packages
+packages/*
+_ReSharper*
+*.user
+*.suo
+*~
+TestResults
+TestResults/*
+output
+output/*
+*.pdb
+AssemblyVersionInfo.cs
