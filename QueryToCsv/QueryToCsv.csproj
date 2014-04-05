@@ -56,6 +56,10 @@
     <Compile Include="Data\IDbConnectionFactory.cs" />
     <Compile Include="Data\Int64Field.cs" />
     <Compile Include="Data\MsSql\MsSqlDbConnectionFactory.cs" />
+    <Compile Include="ArchiveContentDumper.cs" />
+    <Compile Include="ArchiveMessageDumper.cs" />
+    <Compile Include="DataReaderToCsvActivity.cs" />
+    <Compile Include="MessageContentStreamToCsvActivity.cs" />
     <Compile Include="MessageStreamToCsvActivity.cs" />
     <Compile Include="DbMessageStream.cs" />
     <Compile Include="Data\StringField.cs" />

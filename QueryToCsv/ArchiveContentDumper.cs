@@ -1,21 +1,17 @@
 ﻿using System;
 using System.IO;
-using QueryToCsv.Data.MsSql;
+using DeclareDb.Data.MsSql;
 
 namespace QueryToCsv
 {
-   class ArchiveDumper
-   {
-      public class Configuration
-      {
-         public string ConnectionString = "Integrated Security=SSPI; Initial Catalog=NigiriArchive";
-         public string OutputFile;
-      }
+   using Configuration = ArchiveMessageDumper.Configuration;
 
+   class ArchiveContentDumper
+   {
       public readonly Configuration Config;
       readonly MsSqlDbConnectionFactory db;
 
-      public ArchiveDumper(Configuration config = null)
+      public ArchiveContentDumper(Configuration config = null)
       {
          Config = config ?? new Configuration();
          db = new MsSqlDbConnectionFactory(config.ConnectionString);
@@ -23,7 +19,7 @@ namespace QueryToCsv
 
       public void Run()
       {
-         var activity = 
+         var activity =
             MessageStreamToCsvActivity.WriteDataTo(
                new DbMessageStream(db),
                GetOutputStreamWriter());

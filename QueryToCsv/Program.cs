@@ -22,8 +22,10 @@ namespace QueryToCsv
          string[] otherArguments = arguments.Skip(1).ToArray();
          if (mode.ToLower() == "table")
             return new TableDumper(GetTableConfiguration(otherArguments)).Run;
-         if (mode.ToLower() == "archive")
-            return new ArchiveDumper(GetArchiveConfiguration(otherArguments)).Run;
+         if (mode.ToLower() == "archive-messages")
+            return new ArchiveMessageDumper(GetArchiveConfiguration(otherArguments)).Run;
+         if (mode.ToLower() == "archive-content")
+            return new ArchiveContentDumper(GetArchiveConfiguration(otherArguments)).Run;
          return Usage;
       }
 
@@ -31,17 +33,19 @@ namespace QueryToCsv
       {
          Console.WriteLine(
 @"
-QueryToCsv Archive ""{0}"" output.csv
+QueryToCsv Archive-Messages ""{0}"" output.csv
+
+QueryToCsv Archive-Content ""{0}"" output.csv
 
 QueryToCsv Table ""{1}"" output.csv QueryText
 ",
-         new ArchiveDumper.Configuration().ConnectionString,
+         new ArchiveMessageDumper.Configuration().ConnectionString,
          new TableDumper.Configuration().ConnectionString);
       }
 
-      static ArchiveDumper.Configuration GetArchiveConfiguration(string[] otherArguments)
+      static ArchiveMessageDumper.Configuration GetArchiveConfiguration(string[] otherArguments)
       {
-         return new ArchiveDumper.Configuration { ConnectionString = otherArguments[0], OutputFile = otherArguments[1] };
+         return new ArchiveMessageDumper.Configuration { ConnectionString = otherArguments[0], OutputFile = otherArguments[1] };
       }
 
       static TableDumper.Configuration GetTableConfiguration(string[] otherArguments)
