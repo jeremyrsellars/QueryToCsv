@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using DeclareDb.Data.MsSql;
+using QueryToCsv.Data.MsSql;
 
 namespace QueryToCsv
 {

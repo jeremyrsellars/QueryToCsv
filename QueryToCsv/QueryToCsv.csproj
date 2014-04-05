@@ -48,9 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArchiveDumper.cs" />
     <Compile Include="Data\DataHelper.cs" />
-    <Compile Include="DataReaderToCsvActivity.cs" />
     <Compile Include="Data\DateTimeOffsetField.cs" />
     <Compile Include="Data\Field.cs" />
     <Compile Include="Data\IDbConnectionFactory.cs" />
